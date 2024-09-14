@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -41,4 +35,26 @@ model Comment {
 
   post   Post   @relation(fields: [postId], references: [id])
   postId String @db.ObjectId
+}
+
+model model {
+  id    String   @id @default(auto()) @map("_id") @db.ObjectId
+  model_name  String
+  model_uid String 
+  page_no Int
+  post_link String 
+}
+
+model model_img {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  model_uid String @unique
+  img_link String
+  post_link String
+}
+
+model model_vid {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  model_uid String @unique
+  vid_link String
+  post_link String
 }
